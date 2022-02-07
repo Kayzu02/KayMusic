@@ -1,6 +1,7 @@
 import asyncio
 import math
 import os
+import sys
 import dotenv
 import random
 import shutil
@@ -367,7 +368,7 @@ async def update_(client, message):
         )
         os.system("pip3 install -r requirements.txt")
         os.system(f"kill -9 {os.getpid()} && bash start")
-        exit()
+        sys.exit()
     return
 
 
