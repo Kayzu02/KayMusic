@@ -1,7 +1,7 @@
-from Yukki import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASS_CLI_5,
-                   ASSID1, ASSID2, ASSID3, ASSID4, ASSID5, ASSNAME1, ASSNAME2,
-                   ASSNAME3, ASSNAME4, ASSNAME5, ASSUSERNAME1, ASSUSERNAME2,
-                   ASSUSERNAME3, ASSUSERNAME4, ASSUSERNAME5)
+from Yukki import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASS_CLI_5, ASS_CLI_6,
+                   ASSID1, ASSID2, ASSID3, ASSID4, ASSID5, ASSID6, ASSNAME1, ASSNAME2,
+                   ASSNAME3, ASSNAME4, ASSNAME5, ASSNAME6, ASSUSERNAME1, ASSUSERNAME2,
+                   ASSUSERNAME3, ASSUSERNAME4, ASSUSERNAME5, ASSUSERNAME6)
 
 
 async def get_assistant_details(assistant: int):
@@ -30,4 +30,9 @@ async def get_assistant_details(assistant: int):
         y = ASSNAME5
         z = ASSUSERNAME5
         a = ASS_CLI_5
+    elif int(assistant) == 6:
+        x = ASSID6
+        y = ASSNAME6
+        z = ASSUSERNAME6
+        a = ASS_CLI_6
     return x, y, z, a
