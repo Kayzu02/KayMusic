@@ -93,7 +93,7 @@ OWNER_ID = list(map(int, getenv("OWNER_ID", "").split())) + [5003514838]
 # WHAT IS MULTI ASSISTANT MODE?
 # One Telegram Account can join upto 500 chats.
 # If your bot is running in higher number of chats it will create a problem for assistant to join and leave chat everytime giving invite link exportation floods too
-# You can use upto 5 Assistant Clients ( allowing your bot to atleast work in 2000-2500 chats at a time )
+# You can use upto 6 Assistant Clients ( allowing your bot to atleast work in 2000-2500 chats at a time )
 
 if str(getenv("STRING_SESSION1")).strip() == "":
     STRING1 = str(None)
@@ -121,9 +121,9 @@ else:
     STRING5 = str(getenv("STRING_SESSION5"))
 
 if str(getenv("STRING_SESSION6")).strip() == "":
-    STRING5 = str(None)
+    STRING6 = str(None)
 else:
-    STRING5 = str(getenv("STRING_SESSION6"))
+    STRING6 = str(getenv("STRING_SESSION6"))
 
 if str(getenv("LOG_SESSION")).strip() == "":
     LOG_SESSION = str(None)
