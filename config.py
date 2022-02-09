@@ -120,6 +120,11 @@ if str(getenv("STRING_SESSION5")).strip() == "":
 else:
     STRING5 = str(getenv("STRING_SESSION5"))
 
+if str(getenv("STRING_SESSION6")).strip() == "":
+    STRING5 = str(None)
+else:
+    STRING5 = str(getenv("STRING_SESSION6"))
+
 if str(getenv("LOG_SESSION")).strip() == "":
     LOG_SESSION = str(None)
 else:
