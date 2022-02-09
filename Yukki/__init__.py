@@ -14,9 +14,8 @@ from rich.table import Table
 from config import (ASSISTANT_PREFIX, DURATION_LIMIT_MIN, LOG_GROUP_ID,
                     LOG_SESSION)
 from config import MONGO_DB_URI as mango
-from config import (MUSIC_BOT_NAME, OWNER_ID, STRING1, STRING2, STRING3,
-                    STRING4, STRING5, STRING6, SUDO_USERS, UPSTREAM_BRANCH,
-                    UPSTREAM_REPO, get_queue)
+from config import (MUSIC_BOT_NAME, OWNER_ID, STRING1, STRING2, STRING3, STRING4, STRING5, STRING6,
+                    SUDO_USERS, UPSTREAM_BRANCH, UPSTREAM_REPO, get_queue)
 from Yukki.Core.Clients.cli import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4,
                                     ASS_CLI_5, ASS_CLI_6, LOG_CLIENT, app)
 from Yukki.Utilities.changers import time_to_seconds
