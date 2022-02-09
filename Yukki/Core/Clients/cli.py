@@ -1,7 +1,7 @@
 from pyrogram import Client
 
 from config import (API_HASH, API_ID, BOT_TOKEN, LOG_SESSION, STRING1, STRING2,
-                    STRING3, STRING4, STRING5)
+                    STRING3, STRING4, STRING5, STRING6)
 
 app = Client(
     "YukkiMusicBot",
@@ -62,6 +62,17 @@ else:
         api_id=API_ID,
         api_hash=API_HASH,
         session_name=STRING5,
+        plugins=dict(root="Yukki.Plugins.Multi-Assistant"),
+    )
+
+
+if not STRING6:
+    ASS_CLI_6 = None
+else:
+    ASS_CLI_6 = Client(
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_name=STRING6,
         plugins=dict(root="Yukki.Plugins.Multi-Assistant"),
     )
 
