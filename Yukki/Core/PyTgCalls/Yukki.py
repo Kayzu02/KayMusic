@@ -118,7 +118,7 @@ async def join_stream(chat_id: int, file_path: str):
             return True
         except:
             return False
-     elif int(assistant) == 6:
+    elif int(assistant) == 6:
         try:
             await pytgcalls6.join_group_call(
                 chat_id,
