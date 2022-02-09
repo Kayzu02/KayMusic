@@ -44,7 +44,7 @@ __HELP__ = f"""
 /set_var [Var Name] [Value]
 - Set a Var or Update a Var on heroku or .env. Seperate Var and its Value with a space.
 
-/usage
+/musage
 - Get Dyno Usage.
 
 /update
@@ -228,7 +228,7 @@ async def set_var(client, message):
             return await message.reply_text(f"**.env dəyişən əlavə edilməsi:**\n\n`{to_set}` has been added sucsessfully. To restart the bot touch /restart command.")
 
 
-@app.on_message(filters.command("usage") & filters.user(SUDOERS))
+@app.on_message(filters.command("musage") & filters.user(SUDOERS))
 async def usage_dynos(client, message):
     ### Credits CatUserbot
     if await is_heroku():
