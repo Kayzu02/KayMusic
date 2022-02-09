@@ -15,10 +15,10 @@ from config import (ASSISTANT_PREFIX, DURATION_LIMIT_MIN, LOG_GROUP_ID,
                     LOG_SESSION)
 from config import MONGO_DB_URI as mango
 from config import (MUSIC_BOT_NAME, OWNER_ID, STRING1, STRING2, STRING3,
-                    STRING4, STRING5, SUDO_USERS, UPSTREAM_BRANCH,
+                    STRING4, STRING5, STRING6, SUDO_USERS, UPSTREAM_BRANCH,
                     UPSTREAM_REPO, get_queue)
 from Yukki.Core.Clients.cli import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4,
-                                    ASS_CLI_5, LOG_CLIENT, app)
+                                    ASS_CLI_5, ASS_CLI_6, LOG_CLIENT, app)
 from Yukki.Utilities.changers import time_to_seconds
 from Yukki.Utilities.tasks import install_requirements
 
@@ -48,6 +48,7 @@ ASS_CLI_2 = ASS_CLI_2
 ASS_CLI_3 = ASS_CLI_3
 ASS_CLI_4 = ASS_CLI_4
 ASS_CLI_5 = ASS_CLI_5
+ASS_CLI_6 = ASS_CLI_6
 LOG_CLIENT = LOG_CLIENT
 aiohttpsession = ClientSession()
 
@@ -86,6 +87,10 @@ ASSID5 = 0
 ASSNAME5 = ""
 ASSUSERNAME5 = ""
 ASSMENTION5 = ""
+ASSID6 = 0
+ASSNAME6 = ""
+ASSUSERNAME6 = ""
+ASSMENTION6 = ""
 random_assistant = []
 
 
@@ -97,6 +102,7 @@ async def initiate_bot():
     global ASSID3, ASSNAME3, ASSMENTION3, ASSUSERNAME3
     global ASSID4, ASSNAME4, ASSMENTION4, ASSUSERNAME4
     global ASSID5, ASSNAME5, ASSMENTION5, ASSUSERNAME5
+    global ASSID6, ASSNAME6, ASSMENTION6, ASSUSERNAME6
     global Heroku_cli, Heroku_app
     os.system("clear")
     header = Table(show_header=True, header_style="bold yellow")
@@ -131,6 +137,10 @@ async def initiate_bot():
             await ASS_CLI_5.start()
             random_assistant.append(5)
             console.print("├ [yellow]Booted Assistant Client 5")
+        if STRING6 != "None":
+            await ASS_CLI_6.start()
+            random_assistant.append(6)
+            console.print("├ [yellow]Booted Assistant Client 6")
         console.print("└ [green]Assistant Clients Booted Successfully!")
         if LOG_SESSION != "None":
             console.print("\n┌ [red]Booting Logger Client")
@@ -207,6 +217,17 @@ async def initiate_bot():
             )
             ASSUSERNAME5 = getme5.username
             ASSMENTION5 = getme5.mention
+        if STRING6 != "None":
+            getme6 = await ASS_CLI_6.get_me()
+            ASSID6 = getme6.id
+            ASSIDS.append(ASSID6)
+            ASSNAME6 = (
+                f"{getme6.first_name} {getme6.last_name}"
+                if getme6.last_name
+                else getme6.first_name
+            )
+            ASSUSERNAME6 = getme6.username
+            ASSMENTION6 = getme6.mention
         console.print("└ [green]Loaded Clients Information!")
         console.print("\n┌ [red]Loading Sudo Users...")
         sudoersdb = db.sudoers
