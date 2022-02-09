@@ -17,8 +17,8 @@ from pytgcalls.types.input_stream.quality import (HighQualityAudio,
                                                   MediumQualityVideo)
 from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 
-from config import STRING1, STRING2, STRING3, STRING4, STRING5, get_queue
-from Yukki import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASS_CLI_5,
+from config import STRING1, STRING2, STRING3, STRING4, STRING5, STRING6, get_queue
+from Yukki import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASS_CLI_5, ASS_CLI_6,
                    MUSIC_BOT_NAME, app, db_mem)
 from Yukki.Core.PyTgCalls import Queues
 from Yukki.Core.PyTgCalls.Converter import convert
@@ -40,6 +40,7 @@ pytgcalls2 = PyTgCalls(ASS_CLI_2)
 pytgcalls3 = PyTgCalls(ASS_CLI_3)
 pytgcalls4 = PyTgCalls(ASS_CLI_4)
 pytgcalls5 = PyTgCalls(ASS_CLI_5)
+pytgcalls6 = PyTgCalls(ASS_CLI_6)
 
 ### Multi Assistant start
 
@@ -117,7 +118,22 @@ async def join_stream(chat_id: int, file_path: str):
             return True
         except:
             return False
+     elif int(assistant) == 6:
+        try:
+            await pytgcalls6.join_group_call(
+                chat_id,
+                InputStream(
+                    InputAudioStream(
+                        file_path,
+                    ),
+                ),
+                stream_type=StreamType().local_stream,
+            )
+            return True
+        except:
+            return False
     return False
+   
 
 
 ### Join Live Stream
@@ -191,6 +207,20 @@ async def join_live_stream(chat_id: int, link: str, quality):
     elif int(assistant) == 5:
         try:
             await pytgcalls5.join_group_call(
+                chat_id,
+                AudioVideoPiped(
+                    link,
+                    HighQualityAudio(),
+                    stream_quality,
+                ),
+                stream_type=StreamType().live_stream,
+            )
+            return True
+        except:
+            return False
+    elif int(assistant) == 6:
+        try:
+            await pytgcalls6.join_group_call(
                 chat_id,
                 AudioVideoPiped(
                     link,
@@ -289,6 +319,20 @@ async def join_video_stream(chat_id: int, link: str, quality):
             return True
         except:
             return False
+    elif int(assistant) == 6:
+        try:
+            await pytgcalls6.join_group_call(
+                chat_id,
+                AudioVideoPiped(
+                    link,
+                    HighQualityAudio(),
+                    stream_quality,
+                ),
+                stream_type=StreamType().local_stream,
+            )
+            return True
+        except:
+            return False
     return False
 
 
@@ -308,6 +352,8 @@ async def pause_stream(chat_id: int):
         await pytgcalls4.pause_stream(chat_id)
     elif int(assistant) == 5:
         await pytgcalls5.pause_stream(chat_id)
+    elif int(assistant) == 6:
+        await pytgcalls6.pause_stream(chat_id)
 
 
 ### Multi Assistant Resume
@@ -326,6 +372,8 @@ async def resume_stream(chat_id: int):
         await pytgcalls4.resume_stream(chat_id)
     elif int(assistant) == 5:
         await pytgcalls5.resume_stream(chat_id)
+    elif int(assistant) == 6:
+        await pytgcalls6.resume_stream(chat_id)
 
 
 ### Multi Assistant Stop
@@ -348,6 +396,9 @@ async def stop_stream(chat_id: int):
         await remove_active_video_chat(chat_id)
     elif int(assistant) == 5:
         await pytgcalls5.leave_group_call(chat_id)
+        await remove_active_video_chat(chat_id)
+    elif int(assistant) == 6:
+        await pytgcalls6.leave_group_call(chat_id)
         await remove_active_video_chat(chat_id)
 
 
@@ -395,6 +446,15 @@ async def skip_stream(chat_id: int, file_path: str):
         )
     elif int(assistant) == 5:
         await pytgcalls5.change_stream(
+            chat_id,
+            InputStream(
+                InputAudioStream(
+                    file_path,
+                ),
+            ),
+        )
+    elif int(assistant) == 6:
+        await pytgcalls6.change_stream(
             chat_id,
             InputStream(
                 InputAudioStream(
@@ -459,6 +519,16 @@ async def skip_video_stream(chat_id: int, ytlink: str, quality, mystic):
     elif int(assistant) == 5:
         try:
             await pytgcalls5.change_stream(
+                chat_id,
+                AudioVideoPiped(ytlink, HighQualityAudio(), stream_quality),
+            )
+        except:
+            return await mystic.edit(
+                "Failed to Change Video Stream.. Please Skip Again."
+            )
+    elif int(assistant) == 6:
+        try:
+            await pytgcalls6.change_stream(
                 chat_id,
                 AudioVideoPiped(ytlink, HighQualityAudio(), stream_quality),
             )
@@ -748,6 +818,16 @@ async def stream_end_handler5(_, update: Update):
     await playout_end(pytgcalls5, update.chat_id)
 
 
+### Playout End For Client 6
+@pytgcalls6.on_stream_end()
+async def stream_end_handler6(_, update: Update):
+    if isinstance(update, StreamAudioEnded):
+        pass
+    else:
+        return
+    await playout_end(pytgcalls6, update.chat_id)
+
+
 ### Kicked Handlers
 
 
@@ -773,6 +853,11 @@ async def kicked_handler4(_, chat_id: int):
 
 @pytgcalls5.on_kicked()
 async def kicked_handler5(_, chat_id: int):
+    await clear_queue(chat_id)
+
+
+@pytgcalls6.on_kicked()
+async def kicked_handler6(_, chat_id: int):
     await clear_queue(chat_id)
 
 
@@ -804,6 +889,12 @@ async def closed_voice_chat_handler5(_, chat_id: int):
     await clear_queue(chat_id)
 
 
+@pytgcalls6.on_closed_voice_chat()
+async def closed_voice_chat_handler6(_, chat_id: int):
+    await clear_queue(chat_id)
+
+
+
 ### Left Handlers
 
 
@@ -829,4 +920,9 @@ async def left_handler4(_, chat_id: int):
 
 @pytgcalls5.on_left()
 async def left_handler5(_, chat_id: int):
+    await clear_queue(chat_id)
+
+
+@pytgcalls6.on_left()
+async def left_handler6(_, chat_id: int):
     await clear_queue(chat_id)
