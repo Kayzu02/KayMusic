@@ -240,6 +240,7 @@ async def stats_markup(_, CallbackQuery):
         groups_ub3 = channels_ub3 = bots_ub3 = privates_ub3 = total_ub3 = 0
         groups_ub4 = channels_ub4 = bots_ub4 = privates_ub4 = total_ub4 = 0
         groups_ub5 = channels_ub5 = bots_ub5 = privates_ub5 = total_ub5 = 0
+        groups_ub6 = channels_ub6 = bots_ub6 = privates_ub6 = total_ub6 = 0
 
         if STRING1 != "None":
             async for i in ASS_CLI_1.iter_dialogs():
