@@ -32,7 +32,7 @@ __MODULE__ = "Stats"
 __HELP__ = """
 
 
-/stats
+/mstats
 - Check the Stats of Bot.
 - Gets the stat of MongoDb , Assistant, System etc
 """
@@ -51,7 +51,7 @@ async def bot_sys_stats():
     return stats
 
 
-@app.on_message(filters.command("stats") & ~filters.edited)
+@app.on_message(filters.command("mstats") & ~filters.edited)
 async def gstats(_, message):
     start = datetime.now()
     try:
@@ -65,7 +65,7 @@ async def gstats(_, message):
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     smex = f"""
-[•]<u>**General Stats**</u>
+[◆]<u>**General Stats**</u>
 
 Ping: `⚡{resp} ms`
 {uptime}
@@ -106,7 +106,7 @@ async def stats_markup(_, CallbackQuery):
         bot_uptime = int(time.time() - boottime)
         uptime = f"{get_readable_time((bot_uptime))}"
         smex = f"""
-[•]<u>**System Stats**</u>
+[◆]<u>**System Stats**</u>
 
 **{MUSIC_BOT_NAME} Uptime:** {uptime}
 **System Process:** Online
@@ -117,7 +117,7 @@ async def stats_markup(_, CallbackQuery):
 **Pyrogram Version:** {pyrover}
 **PyTgCalls Version:** {pytgover.__version__}
 
-[•]<u>**CPU Stats**</u>
+[◆]<u>**CPU Stats**</u>
 
 **Physical Cores:** {p_core}
 **Total Cores:** {t_core}
@@ -138,7 +138,7 @@ async def stats_markup(_, CallbackQuery):
         free = hdd.free / (1024.0 ** 3)
         free = str(free)
         smex = f"""
-[•]<u>**Storage Stats**</u>
+[◆]<u>**Storage Stats**</u>
 
 **Storage Available:** {total[:4]} GiB
 **Storage Used:** {used[:4]} GiB
@@ -161,7 +161,7 @@ async def stats_markup(_, CallbackQuery):
             except Exception:
                 continue
         smex = f"""
-[•]<u>**Bot Stats**</u>
+[◆]<u>**Bot Stats**</u>
 
 **Modules Loaded:** {modules_loaded}
 **GBanned Users:** {blocked}
@@ -200,7 +200,7 @@ async def stats_markup(_, CallbackQuery):
         mongouptime = str(mongouptime)
         provider = status["repl"]["tags"]["provider"]
         smex = f"""
-[•]<u>**MongoDB Stats**</u>
+[◆]<u>**MongoDb Stats**</u>
 
 **Mongo Uptime:** {mongouptime[:4]} Days
 **Version:** {mver}
@@ -221,7 +221,7 @@ async def stats_markup(_, CallbackQuery):
         end = datetime.now()
         resp = (end - start).microseconds / 1000
         smex = f"""
-[•]<u>General Stats</u>
+[◆]<u>General Stats</u>
 
 **Ping:** `⚡{resp} ms`
 {uptime}"""
@@ -320,7 +320,7 @@ async def stats_markup(_, CallbackQuery):
                 elif t == "private":
                     privates_ub6 += 1
 
-        msg = "[•]<u>Assistant Stats</u>"
+        msg = "[◆]<u>Assistant Stats</u>"
         if STRING1 != "None":
             msg += "\n\n<u>Assistant One:\n</u>"
             msg += f"""**Dialogs:** {total_ub}
@@ -362,7 +362,7 @@ async def stats_markup(_, CallbackQuery):
 **Users:** {privates_ub5}"""
         
         if STRING6 != "None":
-            msg += "\n\n<u>Assistant Five:\n</u>"
+            msg += "\n\n<u>Assistant Six:\n</u>"
             msg += f"""**Dialogs:** {total_ub6}
 **Groups:** {groups_ub6}
 **Channels:** {channels_ub6}
