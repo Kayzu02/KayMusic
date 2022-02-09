@@ -20,8 +20,8 @@ from pyrogram.types import Message
 from pytgcalls import __version__ as pytgover
 
 from config import (MONGO_DB_URI, MUSIC_BOT_NAME, STRING1, STRING2, STRING3,
-                    STRING4, STRING5)
-from Yukki import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASS_CLI_5,
+                    STRING4, STRING5, STRING6)
+from Yukki import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASS_CLI_5, ASS_CLI_6,
                    BOT_ID, MUSIC_BOT_NAME, SUDOERS, app, boottime)
 from Yukki.Database import get_gbans_count, get_served_chats, get_sudoers
 from Yukki.Inline import stats1, stats2, stats3, stats4, stats5, stats6, stats7
@@ -305,6 +305,19 @@ async def stats_markup(_, CallbackQuery):
                     bots_ub5 += 1
                 elif t == "private":
                     privates_ub5 += 1
+    
+        if STRING6 != "None":
+            async for i in ASS_CLI_6.iter_dialogs():
+                t = i.chat.type
+                total_ub6 += 1
+                if t in ["supergroup", "group"]:
+                    groups_ub6 += 1
+                elif t == "channel":
+                    channels_ub6 += 1
+                elif t == "bot":
+                    bots_ub6 += 1
+                elif t == "private":
+                    privates_ub6 += 1
 
         msg = "[•]<u>Assistant Stats</u>"
         if STRING1 != "None":
@@ -346,4 +359,12 @@ async def stats_markup(_, CallbackQuery):
 **Channels:** {channels_ub5}
 **Bots:** {bots_ub5}
 **Users:** {privates_ub5}"""
+        
+        if STRING6 != "None":
+            msg += "\n\n<u>Assistant Five:\n</u>"
+            msg += f"""**Dialogs:** {total_ub6}
+**Groups:** {groups_ub6}
+**Channels:** {channels_ub6}
+**Bots:** {bots_ub6}
+**Users:** {privates_ub6}"""
         await CallbackQuery.edit_message_text(msg, reply_markup=stats6)
