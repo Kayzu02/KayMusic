@@ -42,7 +42,7 @@ stats2 = InlineKeyboardMarkup(
                 text="Bot Stats", callback_data=f"bot_stats"
             ),
             InlineKeyboardButton(
-                text="MongoDB Stats", callback_data=f"mongo_stats"
+                text="MongoDb Stats", callback_data=f"mongo_stats"
             ),
         ],
         [
@@ -94,7 +94,7 @@ stats4 = InlineKeyboardMarkup(
                 text="General Stats", callback_data=f"gen_stats"
             ),
             InlineKeyboardButton(
-                text="MongoDB Stats", callback_data=f"mongo_stats"
+                text="MongoDb Stats", callback_data=f"mongo_stats"
             ),
         ],
         [
@@ -146,7 +146,7 @@ stats6 = InlineKeyboardMarkup(
                 text="Bot Stats", callback_data=f"bot_stats"
             ),
             InlineKeyboardButton(
-                text="MongoDB Stats", callback_data=f"mongo_stats"
+                text="MongoDb Stats", callback_data=f"mongo_stats"
             ),
         ],
         [
