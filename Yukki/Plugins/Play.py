@@ -5,7 +5,6 @@ from pyrogram import filters
 from pyrogram.types import (InlineKeyboardMarkup, InputMediaPhoto, Message,
                             Voice)
 from youtube_search import YoutubeSearch
-from Yukki.Decorators.admins import AdminRightsCheck
 import Yukki
 from Yukki import (BOT_USERNAME, DURATION_LIMIT, DURATION_LIMIT_MIN,
                    MUSIC_BOT_NAME, app, db_mem)
@@ -36,7 +35,6 @@ loop = asyncio.get_event_loop()
 @app.on_message(
     filters.command(["play", f"play@{BOT_USERNAME}"]) & filters.group
 )
-@AdminRightsCheck
 @checker
 @logging
 @PermissionCheck
