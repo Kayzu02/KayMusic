@@ -166,7 +166,7 @@ def search_markup2(
 def secondary_markup(videoid, user_id):
     buttons = [
         [
-            InlineKeyboardButton(text="▶", callback_data=f"resumecb"),
+            InlineKeyboardButton(text="▷", callback_data=f"resumecb"),
             InlineKeyboardButton(text="II", callback_data=f"pausecb"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"skipcb"),
             InlineKeyboardButton(text="▢", callback_data=f"stopcb"),
@@ -184,7 +184,7 @@ def secondary_markup(videoid, user_id):
 def secondary_markup2(videoid, user_id):
     buttons = [
         [
-            InlineKeyboardButton(text="▶", callback_data=f"resumecb"),
+            InlineKeyboardButton(text="▷", callback_data=f"resumecb"),
             InlineKeyboardButton(text="II", callback_data=f"pausecb"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"skipcb"),
             InlineKeyboardButton(text="▢", callback_data=f"stopcb"),
@@ -267,7 +267,7 @@ def audio_timer_markup_start(videoid, user_id, current_time, total_time):
 audio_markup2 = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="▶", callback_data=f"resumecb"),
+            InlineKeyboardButton(text="▷", callback_data=f"resumecb"),
             InlineKeyboardButton(text="II", callback_data=f"pausecb"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"skipcb"),
             InlineKeyboardButton(text="▢", callback_data=f"stopcb"),
