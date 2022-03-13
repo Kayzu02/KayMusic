@@ -146,7 +146,7 @@ def third_playlist_markup(user_name, user_id, third_name, userid, videoid):
 def paste_queue_markup(url):
     buttons = [
         [
-            InlineKeyboardButton(text="▶", callback_data=f"resumecb"),
+            InlineKeyboardButton(text="▷", callback_data=f"resumecb"),
             InlineKeyboardButton(text="II", callback_data=f"pausecb"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"skipcb"),
             InlineKeyboardButton(text="▢", callback_data=f"stopcb"),
