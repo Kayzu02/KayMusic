@@ -20,7 +20,7 @@ def setting_markup2():
             ),
         ],
         [
-            InlineKeyboardButton(text="•Cʟᴏsᴇ•​", callback_data="close"),
+            InlineKeyboardButton(text="• Cʟᴏꜱᴇ​", callback_data="close"),
         ],
     ]
     return f"🔧  **{MUSIC_BOT_NAME} Settings**", buttons
@@ -55,7 +55,7 @@ def start_pannel():
             ],
             [
                 InlineKeyboardButton(
-                    text="📨Group", url=f"{SUPPORT_GROUP}"
+                    text="📨 Group", url=f"{SUPPORT_GROUP}"
                 ),
             ],
         ]
@@ -74,7 +74,7 @@ def start_pannel():
             ],
             [
                 InlineKeyboardButton(
-                    text="📨Channel", url=f"{SUPPORT_CHANNEL}"
+                    text="📨 Channel", url=f"{SUPPORT_CHANNEL}"
                 ),
             ],
         ]
@@ -93,10 +93,10 @@ def start_pannel():
             ],
             [
                 InlineKeyboardButton(
-                    text="📨Channel", url=f"{SUPPORT_CHANNEL}"
+                    text="📨 Channel", url=f"{SUPPORT_CHANNEL}"
                 ),
                 InlineKeyboardButton(
-                    text="📨Group", url=f"{SUPPORT_GROUP}"
+                    text="📨 Group", url=f"{SUPPORT_GROUP}"
                 ),
             ],
         ]
@@ -154,7 +154,7 @@ def private_panel():
             ],
             [
                 InlineKeyboardButton(
-                    text="📨Channel", url=f"{SUPPORT_CHANNEL}"
+                    text="📨 Channel", url=f"{SUPPORT_CHANNEL}"
                 ),
             ],
         ]
@@ -174,10 +174,10 @@ def private_panel():
             ],
             [
                 InlineKeyboardButton(
-                    text="📨Channel", url=f"{SUPPORT_CHANNEL}"
+                    text="📨 Channel", url=f"{SUPPORT_CHANNEL}"
                 ),
                 InlineKeyboardButton(
-                    text="📨Groups", url=f"{SUPPORT_GROUP}"
+                    text="📨 Groups", url=f"{SUPPORT_GROUP}"
                 ),
             ],
         ]
@@ -199,8 +199,8 @@ def setting_markup():
             ),
         ],
         [
-            InlineKeyboardButton(text="•Cʟᴏsᴇ•​", callback_data="close"),
-            InlineKeyboardButton(text="•Bᴀᴄᴋ​•​", callback_data="okaybhai"),
+            InlineKeyboardButton(text="• Cʟᴏꜱᴇ​", callback_data="close"),
+            InlineKeyboardButton(text="• Bᴀᴄᴋ​​", callback_data="okaybhai"),
         ],
     ]
     return f"🔧  **{MUSIC_BOT_NAME} Settings**", buttons
@@ -261,7 +261,7 @@ def usermarkup():
                 text="📋 Users Lists", callback_data="USERLIST"
             )
         ],
-        [InlineKeyboardButton(text="•Bᴀᴄᴋ​•​", callback_data="settingm")],
+        [InlineKeyboardButton(text="• Bᴀᴄᴋ​​", callback_data="settingm")],
     ]
     return f"🔧  **{MUSIC_BOT_NAME} Settings**", buttons
 
@@ -269,13 +269,13 @@ def usermarkup():
 def dashmarkup():
     buttons = [
         [
-            InlineKeyboardButton(text="✔️ Uptime", callback_data="UPT"),
+            InlineKeyboardButton(text="✔ Uptime", callback_data="UPT"),
             InlineKeyboardButton(text="💾 Ram", callback_data="RAT"),
         ],
         [
             InlineKeyboardButton(text="💻 Cpu", callback_data="CPT"),
             InlineKeyboardButton(text="💽 Disk", callback_data="DIT"),
         ],
-        [InlineKeyboardButton(text="•Bᴀᴄᴋ​•", callback_data="settingm")],
+        [InlineKeyboardButton(text="• Bᴀᴄᴋ​", callback_data="settingm")],
     ]
     return f"🔧  **{MUSIC_BOT_NAME} Settings**", buttons
