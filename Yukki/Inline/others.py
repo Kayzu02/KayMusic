@@ -33,11 +33,11 @@ def others_markup(videoid, user_id):
         ],
         [
             InlineKeyboardButton(
-                text="•Bᴀᴄᴋ​•​",
+                text="• Bᴀᴄᴋ​",
                 callback_data=f"pr_go_back_timer {videoid}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="•Cʟᴏsᴇ•​",
+                text="• Cʟᴏꜱᴇ​",
                 callback_data=f"close",
             ),
         ],
@@ -59,9 +59,9 @@ def download_markup(videoid, user_id):
         ],
         [
             InlineKeyboardButton(
-                text="•Bᴀᴄᴋ​•​", callback_data=f"goback {videoid}|{user_id}"
+                text="• Bᴀᴄᴋ​​", callback_data=f"goback {videoid}|{user_id}"
             ),
-            InlineKeyboardButton(text="•Cʟᴏsᴇ•​", callback_data=f"close"),
+            InlineKeyboardButton(text="• Cʟᴏꜱᴇ​", callback_data=f"close"),
         ],
     ]
     return buttons
