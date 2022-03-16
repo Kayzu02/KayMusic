@@ -123,9 +123,9 @@ async def boom(_, CallbackQuery):
         fetched = f"""
 🔍**Track Downloaded**
 
-❇️**Title:** {title}
+🏷**Title:** {title}
 
-⏳**Duration:** {duration} Mins
+⏱️**Duration:** {duration} Mins
 👀**Views:** `{views}`
 🎥**Channel Name:** {channel}
 🔗**Video Link:** [Link]({yturl})
