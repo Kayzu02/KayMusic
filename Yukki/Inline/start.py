@@ -134,7 +134,7 @@ def private_panel():
             ],
             [
                 InlineKeyboardButton(
-                    text="📨Group", url=f"{SUPPORT_GROUP}"
+                    text="📨 Group", url=f"{SUPPORT_GROUP}"
                 ),
             ],
         ]
@@ -226,7 +226,7 @@ def volmarkup():
                 text="🔽 Custom Volume 🔽", callback_data="Custommarkup"
             )
         ],
-        [InlineKeyboardButton(text="•Bᴀᴄᴋ​•", callback_data="settingm")],
+        [InlineKeyboardButton(text="• Bᴀᴄᴋ​•", callback_data="settingm")],
     ]
     return f"🔧  **{MUSIC_BOT_NAME} Settings**", buttons
 
