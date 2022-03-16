@@ -166,10 +166,8 @@ def search_markup2(
 def secondary_markup(videoid, user_id):
     buttons = [
         [
-            InlineKeyboardButton(text="▷", callback_data=f"resumecb"),
-            InlineKeyboardButton(text="II", callback_data=f"pausecb"),
-            InlineKeyboardButton(text="‣‣I", callback_data=f"skipcb"),
-            InlineKeyboardButton(text="▢", callback_data=f"stopcb"),
+            InlineKeyboardButton(text="• Menu", switch_inline_query_current_chat=""
+            ),
         ],
         [
             InlineKeyboardButton(
