@@ -168,11 +168,6 @@ def secondary_markup(videoid, user_id):
         [
             InlineKeyboardButton(
                 text="• Mᴇɴᴜ​", switch_inline_query_current_chat=""
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                text="• Mᴏʀᴇ​", callback_data=f"other {videoid}|{user_id}"
             ),
             InlineKeyboardButton(text="• Cʟᴏꜱᴇ", callback_data=f"close"),
         ],
@@ -185,9 +180,7 @@ def secondary_markup2(videoid, user_id):
         [
             InlineKeyboardButton(
                 text="• Mᴇɴᴜ​", switch_inline_query_current_chat=""
-            )
-        ],
-        [
+            ),
             InlineKeyboardButton(text="• Cʟᴏꜱᴇ", callback_data=f"close"),
         ],
     ]
@@ -202,11 +195,6 @@ def primary_markup(videoid, user_id, current_time, total_time):
         [
             InlineKeyboardButton(
                 text="• Mᴇɴᴜ​", switch_inline_query_current_chat=""
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                text="• Mᴏʀᴇ​", callback_data=f"other {videoid}|{user_id}"
             ),
             InlineKeyboardButton(text="• Cʟᴏꜱᴇ​", callback_data=f"close"),
         ],
@@ -219,11 +207,6 @@ def timer_markup(videoid, user_id, current_time, total_time):
         [
             InlineKeyboardButton(
                 text="• Mᴇɴᴜ​", switch_inline_query_current_chat=""
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="• Mᴏʀᴇ​", callback_data=f"other {videoid}|{user_id}"
             ),
             InlineKeyboardButton(text="• Cʟᴏꜱᴇ​", callback_data=f"close"),
         ],
@@ -239,7 +222,7 @@ def audio_markup(videoid, user_id, current_time, total_time):
         [
             InlineKeyboardButton(
                 text="• Mᴇɴᴜ​", switch_inline_query_current_chat=""
-            )
+            ),
         ],
         [InlineKeyboardButton(text="• Cʟᴏꜱᴇ​", callback_data=f"close")],
     ]
@@ -251,7 +234,7 @@ def audio_timer_markup_start(videoid, user_id, current_time, total_time):
         [
             InlineKeyboardButton(
                 text="• Mᴇɴᴜ​", switch_inline_query_current_chat=""
-            )
+            ),
         ],
         [InlineKeyboardButton(text="• Cʟᴏꜱᴇ", callback_data=f"close")],
     ]
