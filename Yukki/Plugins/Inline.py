@@ -12,12 +12,11 @@ from pyrogram.types import (InlineKeyboardButton,
                             InlineQueryResultPhoto)
 from youtubesearchpython.__future__ import VideosSearch
 
-from config import BANNED_USERS, MUSIC_BOT_NAME
 from Yukki import app
 from Yukki.Utilities.inlinequery import answer
 
 
-@app.on_inline_query(~BANNED_USERS)
+@app.on_inline_query()
 async def inline_query_handler(client, query):
     text = query.query.strip().lower()
     answers = []
@@ -64,7 +63,7 @@ async def inline_query_handler(client, query):
 
 __Reply with /play on this searched message to stream it on voice chat.__
 
-⚡️ ** Inline Search By {MUSIC_BOT_NAME} **"""
+⚡️ ** Inline Search By **"""
             answers.append(
                 InlineQueryResultPhoto(
                     photo_url=thumbnail,
