@@ -257,7 +257,7 @@ async def initiate_bot():
 
 home_text_pm = f"""ʜᴇʟʟᴏ, ɪ'ᴍ ҡᴀʏ ᴍᴜꜱɪᴄ​ ʙᴏᴛ
 `ɪ'ᴍ ᴀ ᴍᴜꜱɪᴄ ʙᴏᴛ + ꜱᴛʀᴇᴀᴍɪɴɢ ᴠɪᴅᴇᴏ ʙᴏᴛ ᴡɪᴛʜ ꜱᴏᴍᴇ ᴜꜱᴇꜰᴜʟ ꜰᴇᴀᴛᴜʀᴇꜱ`
-All Commands Please Press » 📚 ʜᴇʟᴘ​​! """
+All Commands Please Press » /help ! """
 
 
 @app.on_message(filters.command("help") & filters.private)
